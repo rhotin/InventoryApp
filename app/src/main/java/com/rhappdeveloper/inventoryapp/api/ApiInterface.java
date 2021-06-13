@@ -13,18 +13,18 @@ import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 public interface ApiInterface {
-    @GET
+    @GET("parts")
     Call<List<PartObject>> getParts();
 
-    @POST
+    @POST("parts")
     Call<PartObject> createPart(@Body PartObject partObject);
 
-    @PUT("{id}")
+    @PUT("parts/{id}")
     Call<PartObject> UpdatePart(@Path ("id") int id,@Body PartObject partObject);
 
-    @PUT("{id}/receive")
+    @PUT("parts/{id}/receive")
     Call<PartObject> ReceivePart(@Path ("id") int id, @Body PartObject partObject);
 
-    @PUT("{id}/consume")
+    @PUT("parts/{id}/consume")
     Call<PartObject> ConsumePart(@Path ("id") int id, @Body PartObject partObject);
 }
